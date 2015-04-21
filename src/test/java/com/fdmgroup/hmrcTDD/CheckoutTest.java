@@ -31,7 +31,7 @@ public class CheckoutTest {
 		// act
 		value = checkout.calculate(shopping);
 		// assert
-		assertEquals(0.60, value, 0.0);
+		assertEquals(0.60, value, 0.001);
 	}
 	
 	@Test
@@ -41,7 +41,7 @@ public class CheckoutTest {
 		// act
 		double value = checkout.calculate(shopping);
 		// assert
-		assertEquals(0.25, value, 0.01);
+		assertEquals(0.25, value, 0.001);
 	}
 	
 	@Test
@@ -52,7 +52,7 @@ public class CheckoutTest {
 		// act
 		value = checkout.calculate(shopping);
 		// assert
-		assertEquals(0.85, value, 0.01);
+		assertEquals(0.85, value, 0.001);
 	}
 	
 	@Test
@@ -65,7 +65,7 @@ public class CheckoutTest {
 		// act
 		value = checkout.calculate(shopping);
 		// assert
-		assertEquals(1.45, value, 0.01);
+		assertEquals(1.45, value, 0.001);
 	}
 	
 	@Test
@@ -77,7 +77,7 @@ public class CheckoutTest {
 		// act
 		value = checkout.calculate(shopping);
 		// assert
-		assertEquals(1.2, value, 0.01);
+		assertEquals(1.2, value, 0.001);
 	}
 	
 	@Test
@@ -89,7 +89,7 @@ public class CheckoutTest {
 		// act
 		value = checkout.calculate(shopping);
 		// assert
-		assertEquals(0.5, value, 0.01);
+		assertEquals(0.5, value, 0.001);
 	}
 	
 	@Test
@@ -103,6 +103,40 @@ public class CheckoutTest {
 		// act
 		value = checkout.calculate(shopping);
 		// assert
-		assertEquals(1.8, value, 0.01);
+		assertEquals(1.8, value, 0.001);
+	}
+	
+	@Test
+	public void testCalculateFunctionReturnsAPriceOfOnePoundWhenFiveOrangeOrangesArePassedIn(){
+		// arrange
+		shopping.add(orange);
+		shopping.add(orange);
+		shopping.add(orange);
+		shopping.add(orange);
+		shopping.add(orange);
+		// act
+		value = checkout.calculate(shopping);
+		// assert
+		assertEquals(1.0, value, 0.001);
+	}
+	
+	@Test
+	public void testCalculateFunctionWillReturnAPriceOfTwoEightyWhenFiveOrangesAndFiveApplesArePasedIn(){
+		// arrange
+		shopping.add(orange);
+		shopping.add(orange);
+		shopping.add(orange);
+		shopping.add(orange);
+		shopping.add(orange);
+		shopping.add(apple);
+		shopping.add(apple);
+		shopping.add(apple);
+		shopping.add(apple);
+		shopping.add(apple);
+		// act
+		value = checkout.calculate(shopping);
+		// assert
+		assertEquals(2.8, value, 0.001);
+		
 	}
 }
