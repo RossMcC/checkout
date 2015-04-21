@@ -8,9 +8,10 @@ import org.junit.*;
 public class CheckoutTest {
 	
 	private Checkout checkout;
-	ArrayList<String> shopping;
-	String apple;
-	String orange;
+	private ArrayList<String> shopping;
+	private String apple;
+	private String orange;
+	private double value;
 	
 	@Before
 	public void setup(){
@@ -20,6 +21,7 @@ public class CheckoutTest {
 		apple = "apple";
 		orange  = new String();
 		orange = "orange";
+		value = 0;
 	}
 	
 	@Test
@@ -27,7 +29,7 @@ public class CheckoutTest {
 		// arrange
 		shopping.add(apple);
 		// act
-		double value = checkout.calculate(shopping);
+		value = checkout.calculate(shopping);
 		// assert
 		assertEquals(0.60, value, 0.0);
 	}
@@ -48,7 +50,7 @@ public class CheckoutTest {
 		shopping.add(orange);
 		shopping.add(apple);
 		// act
-		double value = checkout.calculate(shopping);
+		value = checkout.calculate(shopping);
 		// assert
 		assertEquals(0.85, value, 0.01);
 	}
@@ -61,7 +63,7 @@ public class CheckoutTest {
 		shopping.add(apple);
 		shopping.add(apple);
 		// act
-		double value = checkout.calculate(shopping);
+		value = checkout.calculate(shopping);
 		// assert
 		assertEquals(1.45, value, 0.01);
 	}
@@ -73,7 +75,7 @@ public class CheckoutTest {
 		shopping.add(apple);
 		shopping.add(apple);
 		// act
-		double value = checkout.calculate(shopping);
+		value = checkout.calculate(shopping);
 		// assert
 		assertEquals(1.2, value, 0.01);
 	}
@@ -85,7 +87,7 @@ public class CheckoutTest {
 		shopping.add(orange);
 		shopping.add(orange);
 		// act
-		double value = checkout.calculate(shopping);
+		value = checkout.calculate(shopping);
 		// assert
 		assertEquals(0.5, value, 0.01);
 	}
@@ -99,7 +101,7 @@ public class CheckoutTest {
 		shopping.add(apple);
 		shopping.add(apple);		
 		// act
-		double value = checkout.calculate(shopping);
+		value = checkout.calculate(shopping);
 		// assert
 		assertEquals(1.8, value, 0.01);
 	}
