@@ -1,24 +1,30 @@
 package com.fdmgroup.hmrcTDD;
 
 import java.util.ArrayList;
+import static org.junit.Assert.*;
 
-import org.junit.Before;
-import org.junit.Test;
-import junit.framework.TestCase;
+import org.junit.*;
 
-public class CheckoutTest extends TestCase {
+public class CheckoutTest {
 	
-	private Checkout checkout = new Checkout();
+	private Checkout checkout;
+	ArrayList<String> shopping;
+	String apple;
+	String orange;
 	
 	@Before
 	public void setup(){
+		checkout= new Checkout();
+		shopping = new ArrayList<String>();
+		apple = new String();
+		apple = "apple";
+		orange  = new String();
+		orange = "orange";
 	}
 	
 	@Test
 	public void testCalculateFunctionReturnsSixtyPenceWhenAStringWithTheValueAppleIsPassedIn(){
 		// arrange
-		ArrayList<String> shopping = new ArrayList<String>();
-		String apple = "apple";
 		shopping.add(apple);
 		// act
 		double value = checkout.calculate(shopping);
@@ -29,8 +35,6 @@ public class CheckoutTest extends TestCase {
 	@Test
 	public void testCalculateFunctionReturnsTwentyFivePenceWhenAStringWithTheValueOrangeIsPassedIn(){
 		// arrange
-		ArrayList<String> shopping = new ArrayList<String>();
-		String orange  = "orange";
 		shopping.add(orange);
 		// act
 		double value = checkout.calculate(shopping);
@@ -41,10 +45,7 @@ public class CheckoutTest extends TestCase {
 	@Test
 	public void testCalculateFunctionReturnsEightyFivePenceWhenStringsWithValuesOrangeAndAppleIsPassedIn(){
 		// arrange
-		ArrayList<String> shopping = new ArrayList<String>();
-		String orange  = "orange";
 		shopping.add(orange);
-		String apple = "apple";
 		shopping.add(apple);
 		// act
 		double value = checkout.calculate(shopping);
@@ -55,9 +56,6 @@ public class CheckoutTest extends TestCase {
 	@Test
 	public void testCalculateFunctionReturnsOneFourtyFiveWhenThreeApplesAndAnOrangeArePassedIn(){
 		// arrange
-		ArrayList<String> shopping = new ArrayList<String>();
-		String orange  = "orange";
-		String apple = "apple";
 		shopping.add(apple);
 		shopping.add(orange);
 		shopping.add(apple);
@@ -71,8 +69,6 @@ public class CheckoutTest extends TestCase {
 	@Test
 	public void testCalulateFunctionRemovesSixtyPenceFromToatalAndReturnsAPriceOfFiftyPenceWhen3ApplesAreAddedToNowReflectBuyOneGetOneFreeOnApples(){
 		// arrange
-		ArrayList<String> shopping = new ArrayList<String>();
-		String apple = "apple";
 		shopping.add(apple);
 		shopping.add(apple);
 		shopping.add(apple);
@@ -85,8 +81,6 @@ public class CheckoutTest extends TestCase {
 	@Test
 	public void testCalculateFunctionRemovesThePriceOfEveryThirdOrangeInLineWithTheOffer(){
 		// arrange
-		ArrayList<String> shopping = new ArrayList<String>();
-		String orange  = "orange";
 		shopping.add(orange);
 		shopping.add(orange);
 		shopping.add(orange);
@@ -99,8 +93,6 @@ public class CheckoutTest extends TestCase {
 	@Test
 	public void testCalculateFunctionReturnsAPriceOfOneEightyWhenFiveApplesArePassedIn(){
 		// arrange
-		ArrayList<String> shopping = new ArrayList<String>();
-		String apple = "apple";
 		shopping.add(apple);
 		shopping.add(apple);
 		shopping.add(apple);
